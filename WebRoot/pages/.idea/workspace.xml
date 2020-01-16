@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc933501-7651-407e-bd4f-d71a7358757b" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WK1FWpzpqavvST1qdCqlpyXVkw" />
+  <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\WorkSpace\MyEclipse10\CTCMS\WebRoot\pages\assets\js\main" />
+      <recent name="E:\WorkSpace\MyEclipse10\CTCMS\WebRoot\pages" />
+      <recent name="E:\WorkSpace\MyEclipse10\CTCMS\WebRoot\pages\assets\plugins\fileinput\js" />
+      <recent name="E:\WorkSpace\MyEclipse10\CTCMS\WebRoot\pages\assets\plugins\fileinput\css" />
+      <recent name="E:\WorkSpace\MyEclipse10\CTCMS\WebRoot\pages\assets\plugins" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.login.html">
+    <configuration name="ct_contents_add.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:6789/pages/ct_contents_add.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ct_contents_detail.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:6789/pages/ct_contents_detail.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ct_user.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:6789/pages/ct_user.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ct_user_list.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:6789/pages/ct_user_list.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:6789/pages/login.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.login.html" />
+      <item itemvalue="JavaScript Debug.ct_contents_add.html" />
+      <item itemvalue="JavaScript Debug.ct_user.html" />
+      <item itemvalue="JavaScript Debug.ct_contents_detail.html" />
+      <item itemvalue="JavaScript Debug.ct_user_list.html" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.login.html" />
+        <item itemvalue="JavaScript Debug.ct_user_list.html" />
+        <item itemvalue="JavaScript Debug.ct_contents_detail.html" />
+        <item itemvalue="JavaScript Debug.ct_user.html" />
+        <item itemvalue="JavaScript Debug.ct_contents_add.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc933501-7651-407e-bd4f-d71a7358757b" name="Default" comment="" />
+      <created>1516758697413</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1516758697413</updated>
+      <workItem from="1516758699402" duration="5268000" />
+      <workItem from="1516795643034" duration="5190000" />
+      <workItem from="1516926857428" duration="19817000" />
+      <workItem from="1517186396375" duration="15980000" />
+      <workItem from="1517227246306" duration="1312000" />
+      <workItem from="1517313834270" duration="5151000" />
+      <workItem from="1517824172814" duration="7630000" />
+      <workItem from="1517880122121" duration="15542000" />
+      <workItem from="1578883369384" duration="4416000" />
+      <workItem from="1578891978669" duration="12930000" />
+      <workItem from="1578968354902" duration="6010000" />
+      <workItem from="1578978204081" duration="12342000" />
+      <workItem from="1579051703988" duration="5571000" />
+      <workItem from="1579138644292" duration="85000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

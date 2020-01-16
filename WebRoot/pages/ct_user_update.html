@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>单位信息修改审核</title>
+    <!-- simplebar CSS-->
+    <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="assets/css/app-style.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<!-- Start wrapper-->
+<div id="wrapper" class="">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+
+
+    </div>
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+        <nav class="navbar navbar-expand fixed-top bg-white">
+
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link toggle-menu" href="javascript:;">
+                        <i class="icon-menu menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <h3 class="sq-title">吉林省公安厅反恐怖总队新媒体矩阵综合管理平台</h3>
+                </li>
+            </ul>
+
+            <!--消息和用户信息-->
+            <ul id="messageAndUser" class="navbar-nav align-items-center right-nav-link">
+
+            </ul>
+        </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+
+
+        <div class="row pt-2 pb-2">
+            <div class="col-sm-9">
+                <h4 class="page-title">单位信息修改审核</h4>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:;">全部功能</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:;">矩阵单位管理</a></li>
+                    <li class="breadcrumb-item">单位信息修改审核</li>
+                </ol>
+            </div>
+            <!-- <div class="col-sm-3 ">
+                 <button type="button" class="btn btn-info waves-effect waves-light m-1 float-sm-right" data-toggle="modal" data-target="#newly-box">新建</button>
+             </div>-->
+        </div>
+
+
+
+
+        <div class="container-fluid card">
+            <div class="row">
+                <div class="col-lg-12 table-responsive mb-3 ">
+                    <table class="table table-hover sq-table mt20">
+                        <thead class="thead-light">
+                        <tr>
+                            <th>编号</th>
+                            <th>用户名</th>
+                            <th>名称</th>
+                            <th>备注</th>
+                            <th>创建时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="contentTbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12 text-right ">
+                    <ul class="pagination">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End container-fluid-->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="newly-box">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeInUp">
+                    <div class="modal-header">
+                        <h5 class="modal-title">新建</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>用户名</label>
+                                <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+                            </div>
+                            <div class="form-group">
+                                <label>密码</label>
+                                <input type="text" class="form-control" id="password" placeholder="请输入密码">
+                            </div>
+                            <div class="form-group">
+                                <label>名称</label>
+                                <input type="text" class="form-control" id="nickname" placeholder="请输入名称">
+                            </div>
+
+                            <div class="form-group">
+                                <label>备注</label>
+                                <textarea rows="4" class="form-control" id="comment" placeholder="请输入描述"></textarea>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>状态</label>
+                                <select class="form-control m-bot15" id="frozen_flag">
+                                    <option value="0">未冻结</option>
+                                    <option value="1">冻结</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> 取消</button>
+                            <button type="button" class="btn btn-success" id="addBtn"><i class="fa fa-check-square-o"></i> 确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="update-box">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeInUp">
+                    <div class="modal-header">
+                        <h5 class="modal-title">修改</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>用户名</label>
+                                <input type="text" class="form-control" id="update_username" placeholder="请输入用户名">
+                            </div>
+                            <div class="form-group">
+                                <label>名称</label>
+                                <input type="text" class="form-control" id="update_nickname" placeholder="请输入名称">
+                            </div>
+
+                            <div class="form-group">
+                                <label>备注</label>
+                                <textarea class="form-control textarea-line" id="update_comment" placeholder="请输入描述"></textarea>
+
+                            </div>
+                            <div class="form-group">
+                                <label>新建审核</label>
+                                <select class="form-control m-bot15" id="update_new_flag">
+                                    <option value="1">审核通过</option>
+                                    <option value="2">驳回</option>
+                                    <option value="0">未审核</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>修改审核</label>
+                                <select class="form-control m-bot15" id="update_update_flag">
+                                    <option value="1">审核通过</option>
+                                    <option value="2">驳回</option>
+                                    <option value="0">未审核</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>状态</label>
+                                <select class="form-control m-bot15" id="update_frozen_flag">
+                                    <option value="0">未冻结</option>
+                                    <option value="1">冻结</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> 取消</button>
+                            <button type="button" class="btn btn-success" id="updateBtn"><i class="fa fa-check-square-o"></i> 确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="password-box">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeInUp">
+                    <div class="modal-header">
+                        <h5 class="modal-title">重置密码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label  >密码</label>
+                                <input type="text" class="form-control" id="pass_password" placeholder="请输入密码">
+                            </div>
+                            <div class="form-group">
+                                <label  >确认密码</label>
+                                <input type="text" class="form-control" id="pass_repassword" placeholder="请输入密码">
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> 取消</button>
+                            <button type="button" class="btn btn-success" id="passwordBtn"><i class="fa fa-check-square-o"></i> 确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="delete-box">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeInUp">
+                    <div class="modal-header">
+                        <h5 class="modal-title">删除</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>确定要删除记录吗？</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> 取消</button>
+                        <button type="button" class="btn btn-success" id="deleteBtn"><i class="fa fa-check-square-o"></i> 确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+
+    </div><!--End content-wrapper-->
+    <!--Start Back To Top Button-->
+    <a href="javascript:;" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+
+</div><!--End wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".btn-sm").click(function (event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
+<!-- simplebar js -->
+<script src="assets/plugins/simplebar/js/simplebar.js"></script>
+<!-- waves effect js -->
+<script src="assets/js/waves.js"></script>
+<!-- Custom scripts -->
+<script src="assets/js/app-script.js"></script>
+
+
+<script src="assets/js/main/reconnecting-websocket.js"></script>
+<script src="assets/js/main/config.js?v=1.0"></script>
+<script src="assets/js/main/md5.js"></script>
+<script src="assets/js/main/ct_user.js"></script>
+
+<script>
+    $(document).ready(function () {
+        setMenu("3", "2");
+        var param={'update_flag':'0','role':'2'};
+        //搜索
+        $('#searchBtn').click(function () {
+            queryUsers($('#searchText').val(),param, currentPage, pageSize);
+        });
+
+        //列表
+        var currentPage = 1;
+        var pageSize = 10;
+        queryUsers($('#searchText').val(),param, currentPage, pageSize);
+
+        $('.pagination').on('click', '.pageBtn', function () {
+            currentPage = $(this).attr('index');
+            queryUsers($('#searchText').val(), param,currentPage, pageSize);
+        });
+        $('.pagination').on('click', '.prevBtn', function () {
+            currentPage--;
+            queryUsers($('#searchText').val(), param,currentPage, pageSize);
+
+        });
+        $('.pagination').on('click', '.nextBtn', function () {
+            currentPage++;
+            queryUsers($('#searchText').val(), param,currentPage, pageSize);
+
+        });
+        $('.pagination').on('click', '#jumpBtn', function () {
+            var reg = /^[1-9]\d*$|^0$/;
+            if (reg.test($('#jumpPageText').val()) == true) {
+                queryUsers($('#searchText').val(),param, $('#jumpPageText').val(), pageSize);
+            } else {
+                alert("页码输入有误！");
+                return false;
+            }
+        });
+
+        //新建
+        $('#addBtn').click(function () {
+            if ($('#username').val() == '') {
+                alert('用户名不能为空！');
+                return false;
+            }
+            if ($('#password').val() == '') {
+                alert('用户密码不能为空！');
+                return false;
+            }
+            if ($('#nickname').val() == '') {
+                alert('用户昵称不能为空！');
+                return false;
+            }
+            addUser();
+        });
+
+        //修改
+        $('#contentTbody').on('click', '.updateUser', function () {
+            userIndex = $(this).attr('index');
+            currentUser = userList[userIndex];
+
+            $('#update_username').val(currentUser.username);
+            /*$('#update_password').val(currentUser.password);*/
+            $('#update_nickname').val(currentUser.nickname);
+            $('#update_comment').val(currentUser.comment);
+            $('#update_new_flag').val(currentUser.new_flag);
+            $('#update_update_flag').val(currentUser.update_flag);
+            $('#update_frozen_flag').val(currentUser.frozen_flag);
+        });
+        $('#updateBtn').click(function () {
+            if ($('#update_username').val() == '') {
+                alert('用户名不能为空！');
+                return false;
+            }
+
+            if ($('#update_nickname').val() == '') {
+                alert('用户昵称不能为空！');
+                return false;
+            }
+            var userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+            var bodyParam = {
+                'id': currentUser.id, 'username': $('#update_username').val(), 'nickname': $('#update_nickname').val(),
+                'comment': $('#update_comment').val(), 'new_flag': $('#update_new_flag').val(),
+                'update_flag': $('#update_update_flag').val(),
+                'frozen_flag': $('#update_frozen_flag').val(),'c_id': userinfo['id']
+            };
+            updateUser(bodyParam);
+        });
+        $('#contentTbody').on('click', '.passwordUser', function () {
+            userIndex = $(this).attr('index');
+            currentUser = userList[userIndex];
+        });
+        $('#passwordBtn').click(function () {
+            if ($('#pass_password').val() == '') {
+                alert('密码不能为空！');
+                return false;
+            }
+            if ($('#pass_repassword').val() == '') {
+                alert('确认密码不能为空！');
+                return false;
+            }
+            if ($('#pass_repassword').val() != $('#pass_password').val()) {
+                alert('两次输入密码不一致！');
+                return false;
+            }
+            var bodyParam = {'id': currentUser.id, 'password': md5($('#pass_password').val())};
+            updateUser(bodyParam);
+        });
+
+        //删除
+        $('#contentTbody').on('click', '.deleteUser', function () {
+            userIndex = $(this).attr('index');
+            currentUser = userList[userIndex];
+        });
+        $('#deleteBtn').click(function () {
+            deleteUser(currentUser.id);
+        });
+    });
+
+</script>
+
+
+</body>
+</html>

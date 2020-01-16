@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>新媒体内容预览</title>
+
+
+    <!--material datepicker css-->
+    <link rel="stylesheet" href="assets/plugins/material-datepicker/css/bootstrap-material-datetimepicker.min.css">
+
+    <!--Bootstrap Datepicker-->
+    <link href="assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/plugins/summernote/dist/summernote-bs4.css"/>
+    <!-- simplebar CSS-->
+    <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="assets/css/app-style.css" rel="stylesheet"/>
+
+
+</head>
+
+<body>
+
+<!-- Start wrapper-->
+<div id="wrapper" class="">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+
+
+    </div>
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+        <nav class="navbar navbar-expand fixed-top bg-white">
+
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link toggle-menu" href="javascript:;">
+                        <i class="icon-menu menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <h3 class="sq-title">吉林省公安厅反恐怖总队新媒体矩阵综合管理平台</h3>
+                </li>
+            </ul>
+
+            <!--消息和用户信息-->
+            <ul id="messageAndUser" class="navbar-nav align-items-center right-nav-link">
+
+            </ul>
+        </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+
+        <div class="row pt-2 pb-2">
+            <div class="col-sm-9">
+                <h4 class="page-title">新媒体内容预览</h4>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:;">全部功能</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:;">内容管理</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:;">新媒体内容列表</a></li>
+                    <li class="breadcrumb-item">新媒体内容预览</li>
+                </ol>
+            </div>
+            <div class="col-sm-3 ">
+                <button type="button" id="checkBtn" class="btn btn-success waves-effect waves-light m-1 float-sm-right" data-toggle="modal" data-target="#check-box">审核</button>
+            </div>
+        </div>
+
+
+        <div class="container-fluid card">
+            <div class="row">
+                <div class="col-lg-9 mb-3 text-center" style="margin:0 auto;" >
+                    <h3 id="title" class="text-center" style="margin-top:50px;"></h3>
+                    <p class="text-center" style="margin: 20px 0 10px 0;"><span id="c_dt"></span> <span id="nickname" style="margin: 0 0 0 30px;"></span></p>
+                    <img id="image" src="assets/images/003.png" style="width: 60%; margin: 0 auto 30px auto; display: block">
+
+                    <div id="contents">
+
+                    </div>
+                    <div class="btn-group m-1">
+                        <button type="button" class="btn btn-outline-info waves-effect waves-light"> <i class="fa fa-star"></i> <span id="comments">评论</span> </button>
+                        <button type="button" class="btn btn-outline-warning waves-effect waves-light">  <i class="fa fa-thumbs-o-up"></i> <span id="likes">点赞</span></button>
+                        <button type="button" class="btn btn-outline-dark waves-effect waves-light"> <i class="fa fa-envelope-o"></i> <span id="reposts">转发</span> </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End container-fluid-->
+        <div class="modal fade" id="check-box">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeInUp">
+                    <div class="modal-header">
+                        <h5 class="modal-title">审核</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>驳回原因</label>
+                                <textarea class="form-control textarea-line" id="reject" placeholder="驳回时请输入驳回原因"></textarea>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="rejectBtn" ><i class="fa fa-times"></i> 驳回</button>
+                            <button type="button" class="btn btn-success" id="passBtn"><i class="fa fa-check-square-o"></i> 通过</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End content-wrapper-->
+    <!--Start Back To Top Button-->
+    <a href="javascript:;" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+
+</div><!--End wrapper-->
+
+<!-- Modal -->
+<div class="modal fade" id="largesizemodal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">新建</h5>
+                <button type="button" class="close accord-inbtn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group row">
+                        <label for="date-picker" class="col-sm-2 col-form-label">日期选择器</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control col-12 col-lg-6 col-xl-6" id="date-picker">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary accord-inbtn">确定</button>
+                <button type="button" class="btn btn-danger accord-inbtn">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+
+<!-- simplebar js -->
+<script src="assets/plugins/simplebar/js/simplebar.js"></script>
+<!-- waves effect js -->
+<script src="assets/js/waves.js"></script>
+<!-- sidebar-menu js -->
+<script src="assets/js/sidebar-menu.js"></script>
+<!-- Custom scripts -->
+<script src="assets/js/app-script.js"></script>
+
+<!--material date picker js-->
+<script src="assets/plugins/material-datepicker/js/moment.min.js"></script>
+<script src="assets/plugins/material-datepicker/js/bootstrap-material-datetimepicker.min.js"></script>
+<script src="assets/plugins/material-datepicker/js/zh.js"></script>
+
+
+<!-- file input -->
+<link href="assets/plugins/fileinput/css/fileinput.min.css" rel="stylesheet">
+<script src="assets/plugins/fileinput/js/fileinput.js"></script>
+<script src="assets/plugins/fileinput/js/fileinput_locale_zh.js" type="text/javascript"></script>
+
+<!--Sweet Alerts -->
+<script src="assets/plugins/alerts-boxes/js/sweetalert.min.js"></script>
+<script src="assets/plugins/alerts-boxes/js/sweet-alert-script.js"></script>
+<script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+<script src="assets/plugins/summernote/dist/summernotezhcn.js"></script>
+
+
+<script src="assets/js/main/reconnecting-websocket.js"></script>
+<script src="assets/js/main/config.js?v=1.0"></script>
+<script src="assets/js/main/md5.js"></script>
+<script src="assets/js/main/ct_contents.js"></script>
+
+<script>
+
+    var headerImage='';
+    var params={};
+
+    $(document).ready(function () {
+        setMenu("7", "5");
+
+        //select
+        detailContents(GetQueryString('id'));
+
+        $('#rejectBtn').click(function () {
+            if ($('#reject').val() == '') {
+                alert('请输入驳回原因！');
+                return false;
+            }
+            var bodyParam = {'id': currentContents.id, 'reject':$('#reject').val(),'state':'-1'};
+            updateContents(bodyParam);
+        });
+        $('#passBtn').click(function () {
+            var bodyParam = {'id': currentContents.id, 'state':'1'};
+            updateContents(bodyParam);
+        });
+
+
+    });
+
+</script>
+
+
+</body>
+</html>

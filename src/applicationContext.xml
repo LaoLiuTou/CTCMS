@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc/jdbc.properties"/>
+</bean>
+<!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="${driverClassName}"/>
+	<property name="url" value="${url}"/>
+	<property name="username" value="${username}"/>
+	<property name="password" value="${password}"/>
+	<property name="maxActive" value="4000"/>
+	<property name="maxIdle" value="1000"/>
+	<property name="maxWait" value="30000"/>
+</bean>-->
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName"><value>${driverClassName}</value></property>
+	<property name="url"><value>${url}</value></property> 
+	<property name="username"><value>${username}</value></property>
+	<property name="password"><value>${password}</value></property>
+	<property name="maxActive"><value>255</value></property> 
+	<property name="maxIdle"><value>2</value></property>
+	<property name="maxWait"><value>120000</value></property>
+</bean>
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="configLocation"><value>classpath:Configuration.xml</value></property>
+	<property name="dataSource"><ref bean="dataSource"/></property>
+ </bean>
+<bean id="sqlSessionTemplate_app" class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg index="0" ref="sqlSessionFactory" />
+</bean>
+<!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+<!-- 配置事务管理器 -->
+<bean id="transactionManager"
+	class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+	p:dataSource-ref="dataSource">
+</bean>
+<!-- 配置多个事务管理器 -->
+<!--<bean id="tran_1"
+	class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+	p:dataSource-ref="dataSource">
+	<qualifier value="tran_1"/>
+</bean>
+@Transactional("tran_1")
+-->
+<!-- enables scanning for @Transactional annotations -->
+<tx:annotation-driven transaction-manager="transactionManager"/>
+<bean id="iContentsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.ctcms.dao.contents.IContentsMapper "/>
+	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+<bean id="iContentsService" class="com.ctcms.service.contents.ContentsServiceImpl"></bean>
+<bean id="iLogsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.ctcms.dao.logs.ILogsMapper "/>
+	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+<bean id="iLogsService" class="com.ctcms.service.logs.LogsServiceImpl"></bean>
+<bean id="iMessagesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.ctcms.dao.messages.IMessagesMapper "/>
+	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+<bean id="iMessagesService" class="com.ctcms.service.messages.MessagesServiceImpl"></bean>
+<bean id="iOpinionsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.ctcms.dao.opinions.IOpinionsMapper "/>
+	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+<bean id="iOpinionsService" class="com.ctcms.service.opinions.OpinionsServiceImpl"></bean>
+<bean id="iUserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.ctcms.dao.user.IUserMapper "/>
+	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+<bean id="iUserService" class="com.ctcms.service.user.UserServiceImpl"></bean>
+</beans>

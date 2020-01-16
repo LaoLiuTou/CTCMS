@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>新媒体内容修改</title>
+
+
+    <!--material datepicker css-->
+    <link rel="stylesheet" href="assets/plugins/material-datepicker/css/bootstrap-material-datetimepicker.min.css">
+
+    <!--Bootstrap Datepicker-->
+    <link href="assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/plugins/summernote/dist/summernote-bs4.css"/>
+    <!-- simplebar CSS-->
+    <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="assets/css/app-style.css" rel="stylesheet"/>
+
+
+</head>
+
+<body>
+
+<!-- Start wrapper-->
+<div id="wrapper" class="">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+
+
+    </div>
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+        <nav class="navbar navbar-expand fixed-top bg-white">
+
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link toggle-menu" href="javascript:;">
+                        <i class="icon-menu menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <h3 class="sq-title">吉林省公安厅反恐怖总队新媒体矩阵综合管理平台</h3>
+                </li>
+            </ul>
+
+            <!--消息和用户信息-->
+            <ul id="messageAndUser" class="navbar-nav align-items-center right-nav-link">
+
+            </ul>
+        </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+
+        <div class="row pt-2 pb-2">
+            <div class="col-sm-9">
+                <h4 class="page-title">新媒体内容修改</h4>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:;">全部功能</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:;">内容管理</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:;">新媒体内容列表</a></li>
+                    <li class="breadcrumb-item">新媒体内容修改</li>
+                </ol>
+            </div>
+            <!--<div class="col-sm-3 ">
+                <button type="button" class="btn btn-info waves-effect waves-light m-1 float-sm-right" data-toggle="modal" data-target="#newly-box">新建</button>
+            </div>-->
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <form id="addForm">
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">标题</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-12 col-lg-6 col-xl-6" id="title"
+                                           placeholder="请输入标题">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label   class="col-sm-2 col-form-label">类型</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control col-12 col-lg-6 col-xl-6" disabled id="type">
+                                        <option value="1">抖音内容录入</option>
+                                        <option value="2">微博内容录入</option>
+                                        <option value="3">微信内容录入</option>
+                                        <option value="4">头条内容录入</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">上传封面图片</label>
+                                <div class="col-sm-10">
+                                    <input id="files" type="file" name="files" multiple>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label   class="col-sm-2 col-form-label">发布日期</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-12 col-lg-6 col-xl-6"
+                                           id="c_dt">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">新媒体内容</label>
+                                <div class="col-sm-10">
+                                    <textarea id="contents" class="textarea-line"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">评论数</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-12 col-lg-6 col-xl-6" id="comments"
+                                           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')}" placeholder="请输入评论数">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">点赞数</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-12 col-lg-6 col-xl-6" id="likes"
+                                           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')}" placeholder="请输入点赞数">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">转发数</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-12 col-lg-6 col-xl-6" id="reposts"
+                                           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')}" placeholder="请输入转发数">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">发布人</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="nickname" class="form-control col-12 col-lg-6 col-xl-6" disabled
+                                           value="">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    <button type="button" id="updateBtn" class="btn btn-primary px-5" id="alert-warning">确定</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End container-fluid-->
+
+    </div><!--End content-wrapper-->
+    <!--Start Back To Top Button-->
+    <a href="javascript:;" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+
+</div><!--End wrapper-->
+
+<!-- Modal -->
+<div class="modal fade" id="largesizemodal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">新建</h5>
+                <button type="button" class="close accord-inbtn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group row">
+                        <label for="date-picker" class="col-sm-2 col-form-label">日期选择器</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control col-12 col-lg-6 col-xl-6" id="date-picker">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary accord-inbtn">确定</button>
+                <button type="button" class="btn btn-danger accord-inbtn">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+
+<!-- simplebar js -->
+<script src="assets/plugins/simplebar/js/simplebar.js"></script>
+<!-- waves effect js -->
+<script src="assets/js/waves.js"></script>
+<!-- sidebar-menu js -->
+<script src="assets/js/sidebar-menu.js"></script>
+<!-- Custom scripts -->
+<script src="assets/js/app-script.js"></script>
+
+<!--material date picker js-->
+<script src="assets/plugins/material-datepicker/js/moment.min.js"></script>
+<script src="assets/plugins/material-datepicker/js/bootstrap-material-datetimepicker.min.js"></script>
+<script src="assets/plugins/material-datepicker/js/zh.js"></script>
+
+
+<!-- file input -->
+<link href="assets/plugins/fileinput/css/fileinput.min.css" rel="stylesheet">
+<script src="assets/plugins/fileinput/js/fileinput.js"></script>
+<script src="assets/plugins/fileinput/js/fileinput_locale_zh.js" type="text/javascript"></script>
+
+<!--Sweet Alerts -->
+<script src="assets/plugins/alerts-boxes/js/sweetalert.min.js"></script>
+<script src="assets/plugins/alerts-boxes/js/sweet-alert-script.js"></script>
+<script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+<script src="assets/plugins/summernote/dist/summernotezhcn.js"></script>
+
+
+<script src="assets/js/main/reconnecting-websocket.js"></script>
+<script src="assets/js/main/config.js?v=1.0"></script>
+<script src="assets/js/main/md5.js"></script>
+<script src="assets/js/main/ct_contents.js"></script>
+
+<script>
+
+    var headerImage='';
+    var params={};
+
+    $(document).ready(function () {
+        setMenu("7",GetQueryString('type'));
+
+        $('#c_dt').bootstrapMaterialDatePicker({
+            format: 'YYYY-MM-DD HH:mm:00',
+            lang: 'zh',
+            cancelText: '取消',
+            okText: '确认'
+        });
+
+        $('#contents').summernote({
+            height: 200,
+            tabsize: 1,
+            lang: "zh-CN"
+        });
+
+
+        //select
+        selectContents(GetQueryString('id'));
+
+
+
+        //图片上传控件
+
+        $("#files").fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: url+'filesUpload',
+            allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+            //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+            uploadAsync: true, //默认异步上传
+            showUpload:true, //是否显示上传按钮
+            showRemove :false, //显示移除按钮
+            showPreview :true, //是否显示预览
+            showCaption:false,//是否显示标题
+            browseClass:"btn btn-outline-primary waves-effect waves-light", //按钮样式
+            dropZoneEnabled: false,//是否显示拖拽区域
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            //maxFileSize:0,//单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+            maxFileCount:1, //表示允许同时上传的最大文件个数
+            enctype:'multipart/form-data',
+            validateInitialCount:true,
+            //previewFileIcon: "<iclass='glyphicon glyphicon-king'></i>",
+            //msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+
+        }).on("filebatchselected", function(event, files) {
+            //$(this).fileinput("upload");
+        }).on("fileuploaded", function(event,data, previewId, index) { //异步上传成功结果处理
+            console.log(data.response)
+            if(data.response.data.length>0){
+                headerImage=data.response.data[0];
+            }
+        }).on('filesuccessremove', function (event, previewId,index) {
+            headerImage='';
+        });
+
+
+
+        //update
+        $('#updateBtn').click(function () {
+            params={};
+
+            $('#addForm input').each(function () {
+                if($(this).val()!='')
+                    params[$(this).attr('id')]=$(this).val();
+            });
+            $('#addForm select').each(function () {
+                if($(this).val()!='')
+                    params[$(this).attr('id')]=$(this).val();
+            });
+            var userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+            params['c_id']=userinfo['id'];
+            params['contents']=$('#contents').val();
+            params['image']=headerImage;
+            params['id']=GetQueryString('id');
+            updateContents(params);
+        });
+
+
+    });
+
+</script>
+
+
+</body>
+</html>
