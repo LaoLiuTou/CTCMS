@@ -27,7 +27,7 @@
     <!-- Sidebar CSS-->
     <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
     <!-- Custom Style-->
-    <link href="assets/css/app-style.css" rel="stylesheet"/>
+    <link href="assets/css/app-style.css?v=1.1" rel="stylesheet"/>
 
 
 </head>
@@ -103,17 +103,37 @@
                                            placeholder="请输入...">
                                 </div>
                             </div>
+
+
                             <div class="form-group row">
-                                <label   class="col-sm-2 col-form-label">类型</label>
+                                <label class="col-sm-2 col-form-label">媒体类型</label>
+
+
                                 <div class="col-sm-10">
-                                    <select class="form-control col-12 col-lg-6 col-xl-6" disabled id="type">
-                                        <option value="1">抖音内容录入</option>
-                                        <option value="2">微博内容录入</option>
-                                        <option value="3">微信内容录入</option>
-                                        <option value="4">头条内容录入</option>
-                                    </select>
+
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="type1"  name="type" value="1" >
+                                        <label for="type1">抖音</label>
+                                    </div>
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="type2"  name="type" value="2" >
+                                        <label for="type2">微博</label>
+                                    </div>
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="type3"  name="type" value="3" >
+                                        <label for="type3">微信</label>
+                                    </div>
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="type4"  name="type" value="4" >
+                                        <label for="type4">头条</label>
+                                    </div>
+
+
+
                                 </div>
                             </div>
+
+
 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">上传封面图片</label>
@@ -256,15 +276,20 @@
 <script src="assets/js/main/reconnecting-websocket.js"></script>
 <script src="assets/js/main/config.js?v=1.0"></script>
 <script src="assets/js/main/md5.js"></script>
-<script src="assets/js/main/ct_contents.js"></script>
+<script src="assets/js/main/ct_contents.js?v=1.2"></script>
 
 <script>
 
 
     var headerImage='';
     var params={};
+    var typeVals = [];
+
     $(document).ready(function () {
         setMenu("7",GetQueryString('type'));
+        //$('#type').val(GetQueryString('type'));
+
+        $("#type"+GetQueryString('type')).prop("checked",true);
         var userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
         if(userinfo!=null){
             $('#nickname').val(userinfo['nickname']);
@@ -326,6 +351,19 @@
 
         //add
         $('#addBtn').click(function () {
+            typeVals = [];
+            $('input[name="type"]:checkbox:checked').each(function (index, item) {
+                typeVals.push($(this).val());
+            });
+            if($('#title').val()==""){
+                alert("请输入标题！")
+                return;
+            }
+            if(typeVals.length==0){
+                alert("请至少选择一种媒体类型！")
+                return;
+            }
+
             params={};
 
             $('#addForm input').each(function () {
@@ -340,6 +378,7 @@
             params['c_id']=userinfo['id'];
             params['contents']=$('#contents').val();
             params['image']=headerImage;
+            params['type']=typeVals.join();
             addContents(params);
         });
 

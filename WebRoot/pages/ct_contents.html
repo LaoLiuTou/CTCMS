@@ -50,7 +50,7 @@
             </ul>
 
             <!--消息和用户信息-->
-            <ul id="messageAndContents" class="navbar-nav align-items-center right-nav-link">
+            <ul id="messageAndUser" class="navbar-nav align-items-center right-nav-link">
 
             </ul>
         </nav>
@@ -76,7 +76,19 @@
             </div>-->
         </div>
 
-
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <input type="text" id="searchText" class="form-control col-12 col-lg-3 col-xl-3 fl" id="input-3" placeholder="请输入要查询的标题...">
+                <select class="form-control col-12 col-lg-3 col-xl-3 fl" id="searchType" style="margin-left: 20px">
+                    <option value="">全部</option>
+                    <option value="1">抖音</option>
+                    <option value="2">微博</option>
+                    <option value="3">微信</option>
+                    <option value="4">头条</option>
+                </select>
+                <button type="button" id="searchBtn" class="btn btn-outline-primary waves-effect waves-light ml10 fl">搜索</button>
+            </div>
+        </div>
         <div class="container-fluid card">
             <div class="row">
                 <div class="col-lg-12 table-responsive mb-3 ">
@@ -86,7 +98,9 @@
                             <th>编号</th>
                             <th>标题</th>
                             <th>用户</th>
-                            <th>时间</th>
+                            <th>类型</th>
+                            <th>信息下发时间</th>
+                            <th>信息提交时间</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -187,39 +201,39 @@
 <script src="assets/js/main/reconnecting-websocket.js"></script>
 <script src="assets/js/main/config.js?v=1.0"></script>
 <script src="assets/js/main/md5.js"></script>
-<script src="assets/js/main/ct_contents.js"></script>
+<script src="assets/js/main/ct_contents.js?v=1.2"></script>
 
 <script>
     $(document).ready(function () {
         setMenu("7", "5");
         //搜索
         $('#searchBtn').click(function () {
-            queryContents($('#searchText').val(), currentPage, pageSize);
+            queryContents($('#searchText').val(),$('#searchType').val(), currentPage, pageSize);
         });
 
         //列表
         var currentPage = 1;
         var pageSize = 10;
-        queryContents($('#searchText').val(), currentPage, pageSize);
+        queryContents($('#searchText').val(),$('#searchType').val(), currentPage, pageSize);
 
         $('.pagination').on('click', '.pageBtn', function () {
             currentPage = $(this).attr('index');
-            queryContents($('#searchText').val(), currentPage, pageSize);
+            queryContents($('#searchText').val(),$('#searchType').val(), currentPage, pageSize);
         });
         $('.pagination').on('click', '.prevBtn', function () {
             currentPage--;
-            queryContents($('#searchText').val(), currentPage, pageSize);
+            queryContents($('#searchText').val(),$('#searchType').val(), currentPage, pageSize);
 
         });
         $('.pagination').on('click', '.nextBtn', function () {
             currentPage++;
-            queryContents($('#searchText').val(), currentPage, pageSize);
+            queryContents($('#searchText').val(),$('#searchType').val(), currentPage, pageSize);
 
         });
         $('.pagination').on('click', '#jumpBtn', function () {
             var reg = /^[1-9]\d*$|^0$/;
             if (reg.test($('#jumpPageText').val()) == true) {
-                queryContents($('#searchText').val(), $('#jumpPageText').val(), pageSize);
+                queryContents($('#searchText').val(),$('#searchType').val(), $('#jumpPageText').val(), pageSize);
             } else {
                 alert("页码输入有误！");
                 return false;

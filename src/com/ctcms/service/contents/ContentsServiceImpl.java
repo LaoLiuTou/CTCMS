@@ -50,7 +50,17 @@ public class ContentsServiceImpl  implements IContentsService {
 	*/ 
 	@Transactional
 	public  int addContents(Contents contents){
-		return iContentsMapper.addcontents(contents);
+		int result=0;
+		if(contents.getType()!=null){
+			String[] types=contents.getType().split(",");
+			for(String type : types){
+				contents.setType(type);
+				iContentsMapper.addcontents(contents);
+			} 
+		}
+		 
+		
+		return result;
 	}
 
 	/**

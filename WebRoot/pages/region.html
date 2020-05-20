@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>选择地区</title>
+    <link rel="stylesheet" type="text/css"  href="region/css/style.css?v=1.1" />
+
+</head>
+<body>
+
+<div class="content-out">
+    <img class="logo" src="region/images/logo200.png">
+    <p class="title">您好，为了更方便的提供服务，<br>请您选择您所在的地区</p>
+    <img class="bg" src="region/images/bg.jpg">
+    <ul class="place-out" id="areaUl">
+        <li class="areaLi active">长春市</li>
+        <li class="areaLi">吉林市</li>
+        <li class="areaLi">四平市</li>
+        <li class="areaLi">辽源市</li>
+        <li class="areaLi">通化市</li>
+        <li class="areaLi">白山市</li>
+        <li class="areaLi">松原市</li>
+        <li class="areaLi">白城市</li>
+        <li class="areaLi">梅河口市</li>
+        <li class="areaLi">公主岭市</li>
+        <li class="areaLi">延边朝鲜族自治州</li>
+        <li class="areaLi">长白山保护开发区管理委员会</li>
+    </ul>
+    <button class="btn" id="submit">确定</button>
+
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/main/config.js?v=1.0"></script>
+<script type="text/javascript">
+    var params={};
+    $(document).ready(function(){
+        let randomStr = localStorage.getItem('randomStr');
+        let areaStr='长春市';
+        if(randomStr==null||randomStr==''){
+            randomStr=Math.random().toString(36).substr(2);
+            localStorage.setItem('randomStr',randomStr);
+        }
+        $('.areaLi').click(function () {
+            $('.areaLi').removeClass('active');
+            $(this).addClass('active');
+            areaStr=$(this).text();
+        });
+        $('#submit').click(function() {
+            params['device']=randomStr;
+            params['area']=areaStr;
+            addRegion(params);
+
+
+        });
+
+    });
+    function addRegion(bodyParam) {
+        $.ajax({
+            url : url+'addRegion',
+            type : 'POST',
+            data : bodyParam,
+            success : function(response) {
+                console.log(JSON.stringify(response));
+                if(response['status']=='0'){
+                    alert("您所在地区信息提交成功！");
+                }
+                else{
+                    alert('系统忙，请稍后再试！');
+                }
+            },
+            error : function(response) {
+                alert('系统忙，请稍后再试！');
+            }
+        });
+
+    }
+</script>
+</body>
+</html>

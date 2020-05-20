@@ -1,6 +1,8 @@
 //后台服务地址
-var url = 'http://192.168.1.30/CTCMS/';
-var socketurl = 'ws://192.168.1.30:8888/';
+//var url = 'http://192.168.3.16/CTCMS/';
+//var socketurl = 'ws://192.168.3.16:8888/';
+var url = 'http://124.234.171.197:8089/CTCMS/';
+var socketurl = 'ws://124.234.171.197:8888/';
 //secret key
 var sk = 'TTILY';
 
@@ -12,10 +14,7 @@ $(document).ready(function(){
     //$('footer').html("版权所有 © 2019");
     //$('.logo').html(' <a href=""><img src="images/logo.png" alt=""></a>');
     //$('.logo-icon').html(' <a href=""><img src="images/logo.png" alt=""></a>');
-    $('#logoutBtn').click(function () {
-        sessionStorage.clear();
-        window.location.href='login.html';
-    });
+
 
     var userinfo=sessionStorage.getItem('userinfo');
     var rolename='',nickname='';
@@ -107,6 +106,11 @@ $(document).ready(function(){
         '</ul>\n' +
         '</li>');
 
+
+    $('#logoutBtn').click(function () {
+        sessionStorage.clear();
+        window.location.href='login.html';
+    });
 });
 
 var websocket = null;
@@ -514,7 +518,7 @@ function setMenu(par,sub){
         '                     <img alt="image" class="index-icon-nav" src="assets/images/index-icon/i-qiye.png"> <span>矩阵单位管理</span>\n' +
         '                 </a>\n' +
         '                 <ul class="sidebar-submenu">\n' +
-        '                     <li id="menu3-1"><a href="ct_user_new.html"">单位新注册审核</a></li>\n' +
+        '                     <li id="menu3-1"><a href="ct_user_new.html">单位新注册审核</a></li>\n' +
         '                     <li id="menu3-2"><a href="ct_user_update.html">单位信息修改审核</a></li>\n' +
         '                     <li id="menu3-3"><a href="ct_user_frozen.html">单位冻结</a></li>\n' +
         '                     <li id="menu3-4"><a href="ct_user_list.html">单位列表</a></li>\n' +
@@ -559,6 +563,7 @@ function setMenu(par,sub){
         '                     <li id="menu6-5"><a>新媒体内容点赞排行</a></li>\n' +
         '                     <li id="menu6-6"><a>新媒体内容转发排行</a></li>\n' +
         '                     <li id="menu6-7"><a>新媒体内容评论排行</a></li>\n' +
+        '                     <li id="menu6-8"><a href="ct_statis_region.html">用户地域统计</a></li>\n' +
         '                 </ul>\n' +
         '             </li>\n' +
         '             <li  id="menu7">\n' +

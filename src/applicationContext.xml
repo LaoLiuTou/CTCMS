@@ -78,4 +78,9 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 </bean>
 <bean id="iUserService" class="com.ctcms.service.user.UserServiceImpl"></bean>
+<bean id="iRegionMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.ctcms.dao.region.IRegionMapper "/>
+	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+<bean id="iRegionService" class="com.ctcms.service.region.RegionServiceImpl"></bean>
 </beans>

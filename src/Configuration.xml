@@ -24,6 +24,7 @@
 		<typeAlias alias="Messages" type="com.ctcms.model.messages.Messages" /> 
 		<typeAlias alias="Opinions" type="com.ctcms.model.opinions.Opinions" /> 
 		<typeAlias alias="User" type="com.ctcms.model.user.User" /> 
+		<typeAlias alias="Region" type="com.ctcms.model.region.Region" /> 
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/ctcms/model/contents/Contents.xml"/> 
@@ -31,5 +32,6 @@
 		<mapper resource="com/ctcms/model/messages/Messages.xml"/> 
 		<mapper resource="com/ctcms/model/opinions/Opinions.xml"/> 
 		<mapper resource="com/ctcms/model/user/User.xml"/> 
+		<mapper resource="com/ctcms/model/region/Region.xml"/> 
 	</mappers>  
 </configuration>

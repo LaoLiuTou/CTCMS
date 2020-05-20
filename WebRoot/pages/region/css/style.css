@@ -1,0 +1,94 @@
+@charset "utf-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; list-style: none; vertical-align: baseline; }
+body { line-height: 1;}
+a { text-decoration: none; }
+a:hover,a:focus { text-decoration: none!important; }
+ol, ul, li { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* Globe Font Control */
+body, table, input, textarea, button, select {  font-size: 14px; }
+.fl { float: left!important; }
+.fr { float: right!important; }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+/* Hides from IE-mac */
+* html .clearfix { height: 1%; }
+.clearfix { display:block; }
+/* End hide from IE-mac */
+.clean { clear: both; }
+/* Other use css */
+body,html {
+    width:100%;
+    height:100%;
+    font-weight: normal;
+    color: #03001f;
+    font-size: 14px;
+}
+body {
+    width:100%;
+    margin: 0 auto!important;
+    font-size: 14px;
+    max-width: 720px;
+    min-width: 320px;
+}
+
+.white { color: #fff;}
+.blue { color: #2856ff;}
+.content-out {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+}
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 40px;
+}
+.bg {
+    width: 100%;
+    height: auto;
+}
+.place-out {
+    margin: 0;
+    padding: 0 30px 20px 30px;
+    list-style: none;
+    overflow: hidden;
+}
+.place-out li {
+    float: left;
+    display: block;
+    padding: 12px 20px;
+    border-radius: 24px;
+    font-size: 16px;
+    border: 1px solid #cfd5de;
+    background-color: #fff;
+    margin: 0 15px 10px 0;
+}
+.place-out li.active {
+    background-color: #2856ff;
+    color: #fff;
+    border-color: #2856ff;
+}
+.btn {
+    width: 45%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #2856ff;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin: 0 auto;
+    border: none;
+    border-radius: 24px;
+}

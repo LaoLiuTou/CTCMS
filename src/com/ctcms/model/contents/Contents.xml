@@ -22,7 +22,7 @@
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
 			<if test="id != null"> AND a.ID =#{id} </if>
 			<if test="type != null"> AND a.TYPE =#{type} </if>
-			<if test="title != null"> AND a.TITLE =#{title} </if>
+			<if test="title != null"> AND a.TITLE LIKE #{title} </if>
 			<if test="image != null"> AND a.IMAGE =#{image} </if>
 			<if test="contents != null"> AND a.CONTENTS =#{contents} </if>
 			<if test="comments != null"> AND a.COMMENTS =#{comments} </if>
@@ -48,7 +48,7 @@
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
 			<if test="id != null"> AND ID =#{id} </if>
 			<if test="type != null"> AND TYPE =#{type} </if>
-			<if test="title != null"> AND TITLE =#{title} </if>
+			<if test="title != null"> AND TITLE LIKE #{title} </if>
 			<if test="image != null"> AND IMAGE =#{image} </if>
 			<if test="contents != null"> AND CONTENTS =#{contents} </if>
 			<if test="comments != null"> AND COMMENTS =#{comments} </if>
